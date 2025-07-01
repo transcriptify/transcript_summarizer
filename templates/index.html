@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Transcript Summarizer</title>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 700px; margin: 2rem auto; padding: 1rem; }
+        input[type="text"] { width: 100%; padding: 0.5rem; }
+        button { padding: 0.5rem 1rem; margin-top: 1rem; }
+        pre { background: #f4f4f4; padding: 1rem; white-space: pre-wrap; }
+        .error { color: red; }
+    </style>
+</head>
+<body>
+    <h1>YouTube Transcript Summarizer</h1>
+    <form method="POST">
+        <label for="video_url">Enter YouTube video URL:</label><br />
+        <input type="text" id="video_url" name="video_url" placeholder="https://www.youtube.com/watch?v=..." required />
+        <br />
+        <button type="submit">Generate Summary</button>
+    </form>
+
+    {% if error %}
+        <p class="error">{{ error }}</p>
+    {% endif %}
+
+    {% if summary %}
+        <h2>Summary</h2>
+        <pre>{{ summary }}</pre>
+    {% endif %}
+</body>
+</html>
+
